@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Testing Github CLI
-        run: gh workflow run -R macnev2013/wf-dispatch-gh-action -r main -f environment=stage -f version=1.0.123
+        run: gh workflow run -R macnev2013/wf-dispatch-gh-action deploy.yml -r main -f environment=stage -f version=1.0.123
         env:
           GITHUB_TOKEN: ${{secrets.GH_API_TOKEN}}
