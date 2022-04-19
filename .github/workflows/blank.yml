@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Testing Github CLI
         run: |
-          cat "${{secrets.A}}" > a
+          echo "${{secrets.A}}" | cat > a
           cat a
