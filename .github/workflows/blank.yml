@@ -14,5 +14,6 @@ jobs:
         run: |
           gh release download -R macnev2013/gh-actions-test -p README.md
           cat README.md
+          echo "testing"
         env:
           GITHUB_TOKEN: ${{secrets.GH_API_TOKEN}}
