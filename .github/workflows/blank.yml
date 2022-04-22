@@ -12,7 +12,6 @@ jobs:
   pr_lint:
     runs-on: ubuntu-latest
     steps:
-      - name: PR Label Check
       - uses: danielchabr/pr-labels-checker@v3
         id: checkLabel
         with:
