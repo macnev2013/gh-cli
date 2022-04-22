@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: paul1k/check-pr-labels@v1.0.0
+        id: check_pr_labels
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-number: ${{ github.event.pull_request.number }}
           labels: '["release:major","release:minor","release:patch"]'
+      - name: See result
+        run: echo "${{ steps.check_pr_labels.outputs.result }}"
