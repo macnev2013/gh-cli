@@ -10,7 +10,7 @@ on:
         description: 'Version to be Published'
         required: true
         type: string
-  pull_request:
+  # pull_request:
 
 jobs:
   planning:
