@@ -13,12 +13,6 @@ on:
   # pull_request:
 
 jobs:
-  planning:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Planning
-        run: echo "Planning"
-
   detect:
     runs-on: ubuntu-latest
     outputs:
