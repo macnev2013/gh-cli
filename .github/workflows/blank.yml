@@ -100,7 +100,7 @@ jobs:
           working-dir: ${{ matrix.directory }}
           output-file: ${{ matrix.directory }}/README.md
           output-method: inject
-          git-push: "true"
+          git-push: "false"
 
       - name: Bump version and push tag
         id: tag_version
