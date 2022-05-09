@@ -65,10 +65,10 @@ jobs:
     steps:
       - name: Detect previous version number
         run: |
-          echo "Changed directory: ${PACKAGE_NAME}"
+          echo "Changed directory: ${{ matrix.directory }}"
         id: prev-version
-        env:
-          PACKAGE_NAME: '${{ matrix.directory }}'
+        # env:
+        #   PACKAGE_NAME: '${{ matrix.directory }}'
         # with:
         #   script: |
 #         env:
