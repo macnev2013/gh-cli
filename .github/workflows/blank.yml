@@ -93,7 +93,7 @@ jobs:
           elif [ ${PATCH} == "true" ] ; then
             echo "RELEASE_TYPE=patch" >> $GITHUB_ENV
           else
-          echo "RELEASE_TYPE=none" >> $GITHUB_ENV
+          echo "RELEASE_TYPE=patch" >> $GITHUB_ENV
           fi
         env:
           PATCH: ${{ steps.check_pr_labels_patch.outputs.result }}
@@ -104,7 +104,7 @@ jobs:
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
-          tag_prefix: "${{ matrix.directory }}:"
+          tag_prefix: ${{ matrix.directory }}@
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: ${{ env.RELEASE_TYPE }}
 
