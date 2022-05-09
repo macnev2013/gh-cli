@@ -98,10 +98,10 @@ jobs:
       - name: Render terraform docs and push changes back to PR
         uses: terraform-docs/gh-actions@main
         with:
-          working-dir: .
+          working-dir: ${{ matrix.directory }}
           output-file: README.md
           output-method: inject
-          git-push: "true"
+          git-push: "false"
 
       - name: Bump version and push tag
         id: tag_version
