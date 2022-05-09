@@ -110,7 +110,7 @@ jobs:
           generateReleaseNotes: true
           prerelease: false
           tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: ${{ matrix.directory }}@${{ steps.tag_version.outputs.new_tag }}
+          name: ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.changelog.outputs.changelog }}
 
       - name: Detect previous version number
