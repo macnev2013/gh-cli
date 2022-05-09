@@ -32,7 +32,10 @@ jobs:
         with:
           format: 'json'
       - name: Changed file
-        run: echo 'Changed files: ${{ steps.raw-files.outputs.all }}'
+        run: |
+          echo 'Changed files: ${{ steps.raw-files.outputs.all }}'
+#         env:
+#           CHANGED_FILE: ${{ steps.raw-files.outputs.all }}
 #       - name: PR Label Check 
 #         uses: docker://agilepathway/pull-request-label-checker:latest
 #         with:
