@@ -13,13 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: dev
-    strategy:
-      fail-fast: false
-      matrix:
-        path:
-          - dev
-          - stage
-          - prod
     steps:
       - name: Testing
         run: echo "Testing"
