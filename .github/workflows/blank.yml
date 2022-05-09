@@ -9,6 +9,12 @@ on:
   pull_request:
 
 jobs:
+  planning:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Planning
+        run: echo "Planning"
+
   build:
     runs-on: ubuntu-latest
     environment:
