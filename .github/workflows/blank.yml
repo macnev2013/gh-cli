@@ -94,6 +94,11 @@ jobs:
           MINOR: ${{ steps.check_pr_labels_minor.outputs.result }}
           MAJOR: ${{ steps.check_pr_labels_major.outputs.result }}
 
+      - name: Generate TF Docs
+        uses: terraform-docs/gh-actions@v1.0.0
+        with:
+          working-dir: azure-mysql,azure-redis
+
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
