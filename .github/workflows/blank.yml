@@ -19,8 +19,10 @@ jobs:
       - name: Planning
         run: echo "Planning"
 
-  build:
+  detect:
     runs-on: ubuntu-latest
+    outputs:
+      directories: ${{ steps.condense.outputs.result }}
     environment:
       name: ${{ github.event.inputs.version }}
     steps:
