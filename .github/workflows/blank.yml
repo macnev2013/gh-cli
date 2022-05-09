@@ -50,7 +50,7 @@ jobs:
               .filter(x => x.includes('/'))
               .map(x => x.split('/')[0])
             ));
-            if (directories.length < 0) return {};
+            if (directories.length < 1) return {};
             return {
               include: directories.map(directory => ({ directory })),
             };
