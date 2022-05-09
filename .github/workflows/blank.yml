@@ -25,7 +25,7 @@ jobs:
       name: ${{ github.event.inputs.version }}
     steps:
       - name: Testing
-        run: echo "Testing"
+        run: echo "Testing ${{env.name}}"
 #       - name: PR Label Check 
 #         uses: docker://agilepathway/pull-request-label-checker:latest
 #         with:
