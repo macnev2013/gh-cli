@@ -26,6 +26,13 @@ jobs:
     steps:
       - name: Testing
         run: echo "Testing ${{env.name}}"
+      - name: Get changed files
+        uses: Ana06/get-changed-files@v1.2
+        id: raw-files
+        with:
+          format: 'json'
+      - name: Changed file
+        run: "Changed files: ${{ steps.raw-files.outputs.all }}"
 #       - name: PR Label Check 
 #         uses: docker://agilepathway/pull-request-label-checker:latest
 #         with:
