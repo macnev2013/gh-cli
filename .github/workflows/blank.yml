@@ -94,10 +94,13 @@ jobs:
           MINOR: ${{ steps.check_pr_labels_minor.outputs.result }}
           MAJOR: ${{ steps.check_pr_labels_major.outputs.result }}
 
-      - name: Generate TF Docs
-        uses: terraform-docs/gh-actions@v1.0.0
+      - name: Render terraform docs and push changes back to PR
+        uses: terraform-docs/gh-actions@main
         with:
-          working-dir: azure-mysql,azure-redis
+          working-dir: ${{ matrix.directory }}
+          output-file: ${{ matrix.directory }}/README.md
+          output-method: inject
+          git-push: "true"
 
       - name: Bump version and push tag
         id: tag_version
