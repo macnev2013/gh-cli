@@ -35,7 +35,7 @@ variable "default_nodepool_max_count" {
 
 variable "default_nodepool_vm_size" {
   type        = string
-  description = "AKS k8s default nodepool vm size"
+  description = "AKS  k8s default nodepool vm size"
 }
 
 variable "default_nodepool_disk_size" {
