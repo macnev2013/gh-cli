@@ -34,6 +34,41 @@ jobs:
       - name: Changed file
         run: |
           echo 'Changed files: ${{ steps.raw-files.outputs.all }}'
+
+      - name: Condense to directory list
+        uses: actions/github-script@v4
+        id: condense
+        env:
+          RAW_FILES: '${{ steps.raw-files.outputs.all }}'
+        with:
+          script: |
+            const raw = JSON.parse(process.env.RAW_FILES);
+            const directories = Array.from(new Set(raw
+              .filter(x => !x.startsWith('.'))
+              .filter(x => x.includes('/'))
+              .map(x => x.split('/')[0])
+            ));
+            if (directories.length < 1) return {};
+            return {
+              include: directories.map(directory => ({ directory })),
+            };
+  plan:
+    needs: detect
+    if: ${{ needs.detect.outputs.directories != '{}' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: "${{ fromJson(needs.detect.outputs.directories) }}"
+      fail-fast: false
+    name: 'Module: ${{ matrix.directory }}'
+    steps:
+      - name: Detect previous version number
+        run: |
+          echo "Changed directory: ${{ env.PACKAGE_NAME }}"
+        id: prev-version
+        env:
+          PACKAGE_NAME: '${{ matrix.directory }}'
+        # with:
+        #   script: |
 #         env:
 #           CHANGED_FILE: ${{ steps.raw-files.outputs.all }}
 #       - name: PR Label Check 
