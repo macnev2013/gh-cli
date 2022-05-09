@@ -94,6 +94,7 @@ jobs:
           MINOR: ${{ steps.check_pr_labels_minor.outputs.result }}
           MAJOR: ${{ steps.check_pr_labels_major.outputs.result }}
 
+      - uses: actions/checkout@v2
       - name: Render terraform docs and push changes back to PR
         uses: terraform-docs/gh-actions@main
         with:

@@ -10,7 +10,7 @@ variable "resource_group_name" {
 
 variable "aks_subnet_name" {
   type        = string
-  description = "AKS default nodepool subnet name"
+  description = "AKS default nodepool  subnet name"
 }
 
 variable "aks_vnet_name" {
