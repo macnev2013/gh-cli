@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       directories: ${{ steps.condense.outputs.result }}
-#     environment:
-#       name: ${{ github.event.inputs.version }}
+    environment:
+      name: ${{ github.event.inputs.environment }}
     steps:
       - name: Testing
         run: |
