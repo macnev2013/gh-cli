@@ -24,7 +24,8 @@ jobs:
         with:
           secret: ${{ secrets.GITHUB_TOKEN }}
           approvers: macnev2013
-          issue-title: Terraform : Manual Approval for Job: ${{ github.job }}
+          issue-title: |
+            Terraform : Manual Approval for Job: ${{ github.job }}
           issue-body: |
             <details><summary>Show Plan</summary>
               Plan details will go here
