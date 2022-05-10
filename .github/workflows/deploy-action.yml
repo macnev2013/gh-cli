@@ -17,5 +17,12 @@ jobs:
     steps:
       - name: Testing
         run: |
-          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Testing for: ${{ github.event.inputs.environment }}"
+  plan:
+    environment:
+      name: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Testing
+        run: |
+          echo "Planning for: ${{ github.event.inputs.environment }}"
 
