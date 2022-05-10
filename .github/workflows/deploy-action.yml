@@ -18,11 +18,13 @@ jobs:
       - name: Testing
         run: |
           echo "Testing for: ${{ github.event.inputs.environment }}"
-  plan:
-    runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.event.inputs.environment }}
-    steps:
+
+      - name: Manual Approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: user1,user2
+
       - name: Testing
         run: |
           echo "Planning for: ${{ github.event.inputs.environment }}"
