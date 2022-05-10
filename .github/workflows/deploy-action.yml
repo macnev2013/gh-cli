@@ -1,0 +1,21 @@
+name: TF
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to be Published'
+        required: true
+        type: environment
+  # pull_request:
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Testing
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+
