@@ -6,10 +6,10 @@ on:
 
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Version to be Published'
+      environment:
+        description: 'Environment to be Published'
         required: true
-        type: string
+        type: choice
   # pull_request:
 
 jobs:
