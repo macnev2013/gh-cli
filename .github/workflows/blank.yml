@@ -9,7 +9,7 @@ on:
       environment:
         description: 'Environment to be Published'
         required: true
-        type: choice
+        type: environment
   # pull_request:
 
 jobs:
