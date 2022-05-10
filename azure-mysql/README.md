@@ -34,7 +34,7 @@ No resources.
 | <a name="input_k8s_node_pool"></a> [k8s\_node\_pool](#input\_k8s\_node\_pool) | List of k8s nodepools | `map(map(string))` | n/a | yes |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | AKS k8s version | `string` | n/a | yes |
 | <a name="input_node_pool_resource_group"></a> [node\_pool\_resource\_group](#input\_node\_pool\_resource\_group) | Nodepool Resource group for AKS | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the  resource group. | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the resource group. | `string` | n/a | yes |
 
 ## Outputs
 
