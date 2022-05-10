@@ -6,7 +6,7 @@
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group."
-}
+} 
 
 variable "aks_subnet_name" {
   type        = string
