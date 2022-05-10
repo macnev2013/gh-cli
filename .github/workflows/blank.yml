@@ -118,6 +118,7 @@ jobs:
           draft: false
           generateReleaseNotes: true
           prerelease: false
+          artifacts: ${{ matrix.directory }}
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.changelog.outputs.changelog }}
