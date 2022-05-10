@@ -26,7 +26,7 @@ jobs:
           approvers: macnev2013
           approval-wait: 10
           issue-title: |
-            Terraform : Manual Approval for Job: ${{ github.job }}
+            Terraform - Manual Approval for Job: ${{ github.job }}
           issue-body: |
             <details><summary>Show Plan</summary>
               Plan details will go here
