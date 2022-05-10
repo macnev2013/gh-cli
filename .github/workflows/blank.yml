@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       directories: ${{ steps.condense.outputs.result }}
-    environment:
-      name: ${{ github.event.inputs.version }}
+#     environment:
+#       name: ${{ github.event.inputs.version }}
     steps:
       - name: Testing
-        run: echo "Testing ${{env.name}}"
+        run: echo "Environment: ${{ github.event.inputs.environment }}"
       - name: Get changed files
         uses: Ana06/get-changed-files@v1.2
         id: raw-files
