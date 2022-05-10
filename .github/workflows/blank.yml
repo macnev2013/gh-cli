@@ -21,7 +21,8 @@ jobs:
 #       name: ${{ github.event.inputs.version }}
     steps:
       - name: Testing
-        run: echo "Environment: ${{ github.event.inputs.environment }}"
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
       - name: Get changed files
         uses: Ana06/get-changed-files@v1.2
         id: raw-files
