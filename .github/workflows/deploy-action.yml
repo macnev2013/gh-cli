@@ -21,11 +21,11 @@ jobs:
       - name: Output test
         id: installer
         run: |
-          echo "::set-output name=stdout::$(sudo apt-get update)"
+          echo 'APTOUT<<EOF' >> $GITHUB_ENV
+          sudo apt-get update >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: Manual Approval
         uses: macnev2013/manual-approval@v1.0.18
-        env:
-          OP: ${{ steps.installer.outputs.stdout }}
         with:
           secret: ${{ secrets.GITHUB_TOKEN }}
           approvers: macnev2013
@@ -34,7 +34,7 @@ jobs:
             Terraform - Manual Approval for Job: ${{ github.job }}
           issue-body: |
             <details><summary>Show Plan</summary>
-            ${{ env.OP }}
+            ${{ env.APTOUT }}
             </details>
       - name: Testing
         run: |
