@@ -36,6 +36,7 @@ jobs:
           echo "Service: ${{ env.VAR_SERVICE }}"
           echo "Directory: ${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}"
 
+      - uses: actions/checkout@v3
       - name: Using Secret
         run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
