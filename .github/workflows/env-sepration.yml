@@ -43,6 +43,7 @@ jobs:
       #     cd ${{ env.VAR_DIR }}
 
       - name: MySQL Deployment
+        id: plan
         if: github.event.inputs.service == 'mysql'
         working-directory: ${{ env.VAR_DIR }}
         run: |
@@ -51,11 +52,14 @@ jobs:
 
       - name: Redis Deployment
         if: github.event.inputs.service == 'redis'
+        id: plan
         working-directory: ${{ env.VAR_DIR }}
         run: |
           echo "Deploying Redis"
           pwd
 
+      - name: print output
+        run: echo ${{ steps.plan.outputs.stdout }}
 
   # plan:
   #   runs-on: ubuntu-latest
