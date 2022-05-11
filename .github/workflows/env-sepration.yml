@@ -37,21 +37,28 @@ jobs:
           echo "VAR_DIR=${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}" >> $GITHUB_ENV
 
       - uses: actions/checkout@v3
-      - name: Using Secret
+      - name: MySQL Deployment
+        if: ${{ github.event.inputs.service }} == 'mysql'
         run: |
-          echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
+          echo "Deploying MySQL"
           cd ${{ env.VAR_DIR }}
           cat testfile
 
-  plan:
-    runs-on: ubuntu-latest
-    needs: detect
-    environment:
-      name: ${{ github.event.inputs.environment }}
-    steps:
-      - name: Environments
+      - name: Redis Deployment
+        if: ${{ github.event.inputs.service }} == 'redis'
         run: |
-          echo "Region: ${{ env.VAR_REGION }}"
-          echo "Env: ${{ env.VAR_ENV }}"
-          echo "Service: ${{ env.VAR_SERVICE }}"
-          echo "Directory: ${{ env.VAR_DIR }}"
+          echo "Deploying Redis"
+
+
+  # plan:
+  #   runs-on: ubuntu-latest
+  #   needs: detect
+  #   environment:
+  #     name: ${{ github.event.inputs.environment }}
+  #   steps:
+  #     - name: Environments
+  #       run: |
+  #         echo "Region: ${{ env.VAR_REGION }}"
+  #         echo "Env: ${{ env.VAR_ENV }}"
+  #         echo "Service: ${{ env.VAR_SERVICE }}"
+  #         echo "Directory: ${{ env.VAR_DIR }}"
