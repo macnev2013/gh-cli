@@ -33,6 +33,7 @@ jobs:
           echo "Region: ${{ env.VAR_REGION }}"
           echo "Env: ${{ env.VAR_ENV }}"
           echo "Service: ${{ env.VAR_SERVICE }}"
+          echo "Directory: ${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}"
 
       - name: Using Secret
         run: |
