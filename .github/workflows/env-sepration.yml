@@ -7,7 +7,6 @@ on:
         description: 'Environment to be Published'
         required: true
         type: environment
-  # pull_request:
 
 jobs:
   detect:
@@ -26,5 +25,5 @@ jobs:
           echo "Region: ${{ env.VAR_REGION }}"
           echo "Service: ${{ env.VAR_SERVICE }}"
       - name: Using Secret
-        runs: |
+        run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
