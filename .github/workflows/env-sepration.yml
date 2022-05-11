@@ -36,11 +36,12 @@ jobs:
           echo "Directory: ${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}"
           echo "VAR_DIR=${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}" >> $GITHUB_ENV
 
+      - uses: actions/checkout@v3
+
       - name: Move Dir
         run: |
           cd ${{ env.VAR_DIR }}
 
-      - uses: actions/checkout@v3
       - name: MySQL Deployment
         if: github.event.inputs.service == 'mysql'
         run: |
