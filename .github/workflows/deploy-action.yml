@@ -34,7 +34,8 @@ jobs:
             Terraform - Manual Approval for Job: ${{ github.job }}
           issue-body: |
             <details><summary>Show Plan</summary>
-            ${{ env.APTOUT }}
+            ```\n
+            ${{ env.APTOUT }}```
             </details>
       - name: Testing
         run: |
