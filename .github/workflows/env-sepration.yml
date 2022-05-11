@@ -25,3 +25,6 @@ jobs:
         run: |
           echo "Region: ${{ env.VAR_REGION }}"
           echo "Service: ${{ env.VAR_SERVICE }}"
+      - name: Using Secret
+        runs: |
+          echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
