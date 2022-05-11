@@ -17,13 +17,13 @@ jobs:
       - name: Testing
         run: |
           echo "Testing for: ${{ github.event.inputs.environment }}"
-          echo "VAR_REGION=${{ github.event.inputs.environment }} | awk -F'_' '{print $(NF-1)}'" >> $GITHUB_ENV
-          echo "VAR_ENV=${{ github.event.inputs.environment }} | awk -F'_' '{print $NF}'" >> $GITHUB_ENV
+          echo "VAR_REGION=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $(NF-1)}'`" >> $GITHUB_ENV
+          echo "VAR_ENV=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $NF}'`" >> $GITHUB_ENV
 
       - name: Service & Env
         run: |
           echo "Region: ${{ env.VAR_REGION }}"
-          echo "Service: ${{ env.VAR_SERVICE }}"
+          echo "Service: ${{ env.VAR_ENV }}"
       - name: Using Secret
         run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
