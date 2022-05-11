@@ -21,7 +21,7 @@ jobs:
       - name: Output test
         id: installer
         run: |
-          "::set-output name=stdout::$(sudo apt-get update)"
+          echo "::set-output name=stdout::$(sudo apt-get update)"
       - name: Manual Approval
         uses: macnev2013/manual-approval@v1.0.18
         env:
