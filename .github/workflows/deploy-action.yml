@@ -40,7 +40,7 @@ jobs:
             <details><summary>Show Plan</summary>
 
             ```
-            $(cat README.md)
+            `$(cat README.md)`
             ```
             </details>
       - name: Testing
