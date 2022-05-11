@@ -26,7 +26,7 @@ jobs:
           echo "Testing for: ${{ github.event.inputs.environment }}"
           echo "VAR_REGION=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $(NF-1)}'`" >> $GITHUB_ENV
           echo "VAR_ENV=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $NF}'`" >> $GITHUB_ENV
-          echo "VAR_SERVICE=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+          echo "VAR_SERVICE=${{ github.event.inputs.service }}" >> $GITHUB_ENV
 
       - name: Service & Env
         run: |
