@@ -45,11 +45,13 @@ jobs:
         if: github.event.inputs.service == 'mysql'
         run: |
           echo "Deploying MySQL"
+          pwd
 
       - name: Redis Deployment
         if: github.event.inputs.service == 'redis'
         run: |
           echo "Deploying Redis"
+          pwd
 
 
   # plan:
