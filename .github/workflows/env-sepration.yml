@@ -40,5 +40,7 @@ jobs:
       - name: Using Secret
         run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
-          cd ${{ env.VAR_DIR }}
+          cd ${{ env.VAR_DIR }} && ls && pwd
+          ls && pwd
+          pwd
           cat testfile
