@@ -23,7 +23,7 @@ jobs:
         run: |
           sudo apt-get update
       - name: Manual Approval
-        uses: macnev2013/manual-approval@v1.0.17
+        uses: macnev2013/manual-approval@v1.0.18
         env:
           OP: ${{ steps.installer.outputs.result }}
         with:
@@ -34,7 +34,7 @@ jobs:
             Terraform - Manual Approval for Job: ${{ github.job }}
           issue-body: |
             <details><summary>Show Plan</summary>
-            ${OP}
+            ${{ env.OP }}
             </details>
       - name: Testing
         run: |
