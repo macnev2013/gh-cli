@@ -27,6 +27,7 @@ jobs:
           echo "VAR_REGION=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $(NF-1)}'`" >> $GITHUB_ENV
           echo "VAR_ENV=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $NF}'`" >> $GITHUB_ENV
           echo "VAR_SERVICE=${{ github.event.inputs.service }}" >> $GITHUB_ENV
+          echo "VAR_DIR=${{ env.VAR_REGION }}/${{ env.VAR_ENV }}/${{ env.VAR_SERVICE }}" >> $GITHUB_ENV
 
       - name: Service & Env
         run: |
@@ -38,3 +39,5 @@ jobs:
       - name: Using Secret
         run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
+          cd ${{ env.VAR_DIR }}
+          cat testfile
