@@ -7,6 +7,13 @@ on:
         description: 'Environment to be Published'
         required: true
         type: environment
+      service:
+        description: 'Service to be deployed'
+        required: true
+        type: choice
+        options:
+        - mysql
+        - redis
 
 jobs:
   detect:
@@ -19,11 +26,14 @@ jobs:
           echo "Testing for: ${{ github.event.inputs.environment }}"
           echo "VAR_REGION=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $(NF-1)}'`" >> $GITHUB_ENV
           echo "VAR_ENV=`echo ${{ github.event.inputs.environment }} | awk -F'_' '{print $NF}'`" >> $GITHUB_ENV
+          echo "VAR_SERVICE=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
 
       - name: Service & Env
         run: |
           echo "Region: ${{ env.VAR_REGION }}"
-          echo "Service: ${{ env.VAR_ENV }}"
+          echo "Env: ${{ env.VAR_ENV }}"
+          echo "Service: ${{ env.VAR_SERVICE }}"
+
       - name: Using Secret
         run: |
           echo "onetwothree${{ secrets.MY_DEMO_SECRET }}onetwothree"
