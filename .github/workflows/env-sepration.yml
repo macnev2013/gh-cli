@@ -38,14 +38,14 @@ jobs:
 
       - uses: actions/checkout@v3
       - name: MySQL Deployment
-        if: '${{ env.VAR_SERVICE }} == "mysql"'
+        if: github.event.inputs.service == 'mysql'
         run: |
           echo "Deploying MySQL"
           cd ${{ env.VAR_DIR }}
           cat testfile
 
       - name: Redis Deployment
-        if: '${{ env.VAR_SERVICE }} == "redis"'
+        if: github.event.inputs.service == 'redis'
         run: |
           echo "Deploying Redis"
 
