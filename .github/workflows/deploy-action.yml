@@ -35,7 +35,8 @@ jobs:
           issue-body: |
             <details><summary>Show Plan</summary>
             ```\n
-            ${{ env.APTOUT }}```
+            ${{ env.APTOUT }}
+            ```
             </details>
       - name: Testing
         run: |
